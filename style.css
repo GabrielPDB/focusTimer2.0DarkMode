@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-background-color: hsla(0, 0%, 100%, 1);
+  --dark-background-color: hsla(240, 5%, 7%, 1);
+
+  --light-card-color: hsla(240, 9%, 89%, 1);
+  --dark-card-color: hsla(240, 6%, 17%, 1);
+
+  --light-selected-card-color: hsla(194, 97%, 31%, 1);
+  --dark-selected-card-color: hsla(195, 74%, 15%, 1);
+
+  --light-text-color: hsla(240, 6%, 21%, 1);
+  --dark-text-color: hsla(0, 0%, 100%, 1);
+
+  --light-icons-color: hsla(240, 6%, 21%, 1);
+  --dark-icons-color: hsla(240, 7%, 78%, 1);
+
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--light-text-color);
+}
+
+header {
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
+}
+
+body header svg {
+  cursor: pointer;
+  display: none;
+}
+
+body.light header svg#light {
+  display: block;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+#timer {
+  font-size: 12.6rem;
+  line-height: 14.8rem;
+  text-transform: uppercase;
+  display: flex;
+  gap: 1rem;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+#controls button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+aside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+aside .card {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.4rem;
+  padding: 2.4rem;
+  background: var(--light-card-color);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+aside .card.selected {
+  background: var(--light-selected-card-color);
+}
+
+aside .card.selected svg path {
+  fill: var(--dark-text-color);
+}
+
+aside .card input[type='range'] {
+  width: 9rem;
+  -webkit-appearance: none;
+  background: var(--light-text-color);
+  outline: none;
+  height: 0.4rem;
+  border-radius: 9px;
+}
+
+aside .card.selected input[type='range'] {
+  background: var(--dark-text-color);
+}
+
+aside .card input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+
+  background: var(--light-text-color);
+  cursor: pointer;
+}
+
+aside .card.selected input[type='range']::-webkit-slider-thumb {
+  background: var(--dark-text-color);
+}
+
+/* DARK MODE */
+
+body.dark header svg#dark {
+  display: block;
+}
+
+body.dark {
+  background: var(--dark-background-color);
+  color: var(--dark-text-color);
+}
+
+body.dark main #controls button svg path {
+  fill: var(--dark-text-color);
+}
+
+body.dark aside .card {
+  background-color: var(--dark-card-color);
+}
+
+body.dark aside .card svg path {
+  fill: var(--dark-text-color);
+}
+
+body.dark aside .card.selected {
+  background: var(--dark-selected-card-color);
+}
+
+body.dark aside .card input[type='range'] {
+  background: var(--dark-text-color);
+}
+
+body.dark aside .card input[type='range']::-webkit-slider-thumb {
+  background: var(--dark-text-color);
+}
